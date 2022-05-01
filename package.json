@@ -1,7 +1,7 @@
 {
   "name": "komotedly",
   "version": "1.0.0",
-  "description": "komotedly",
+  "description": "komotedly for notes",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
