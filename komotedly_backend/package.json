@@ -1,6 +1,6 @@
 {
   "name": "komotedly",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "komotedly for notes",
   "main": "src/index.js",
   "scripts": {
