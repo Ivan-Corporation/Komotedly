@@ -27,18 +27,56 @@ import logo from '../img/logo.png';
 import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 import Button from '@mui/material/Button';
-
+import HomeIcon from '@mui/icons-material/Home';
 import { IS_LOGGED_IN } from '../gql/query';
-
-
-
-
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddIcon from '@mui/icons-material/Add';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const DrawerLinks = [
   {
-    name: 11,
-    link: 5500
+    id: 1,
+    name: 'Home',
+    link: '/',
+    icon: <HomeIcon />
   },
+  {
+    id: 2,
+    name: 'My Notes',
+    link: '/mynotes',
+    icon: <EventNoteIcon />
+  },
+  {
+    id: 3,
+    name: 'Favorites',
+    link: '/favorites',
+    icon: <FavoriteIcon />
+  },
+  {
+    id: 4,
+    name: 'New Note',
+    link: '/new',
+    icon: <AddIcon />
+  },
+]
+
+
+
+const DrawerLinksBottom = [
+  {
+    id: 1,
+    name: 'Home',
+    link: 'https://github.com/Ivan-Corporation',
+    icon: <GitHubIcon />
+  },
+  {
+    id: 2,
+    name: 'My Notes',
+    link: '/mynotes',
+    icon: <EventNoteIcon />
+  },
+ 
 ]
 
 
@@ -111,7 +149,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function Layout() {
+export default function Layout({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   // query hook for user logged in state
@@ -139,6 +177,7 @@ export default function Layout() {
               marginRight: 4,
               ...(open && { display: 'none' }),
             }}
+            style={{marginLeft:'-15px'}}
           >
             <MenuIcon sx={{ fontSize: 30 }}/>
           </IconButton>
@@ -148,7 +187,7 @@ export default function Layout() {
             aria-label="menu"
             
           >
-          <Link style={{ textDecoration: 'none' }} to={'/'}><img src={logo} alt="Komotedly Logo" /></Link>
+          <Link style={{ textDecoration: 'none' }} to={'/'}><img src={logo} alt="Komotedly Logo"/></Link>
           </IconButton>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
           <b>Komotedly</b>
@@ -156,7 +195,7 @@ export default function Layout() {
 
 
           {data.isLoggedIn ? (
-          <ButtonAsLink
+          <Button
             onClick={() => {
               // remove the token
               localStorage.removeItem('token');
@@ -167,9 +206,10 @@ export default function Layout() {
               // redirect the user to the homepage
               props.history.push('/');
             }}
+            endIcon={<LogoutIcon />} style={{ color: 'white', borderColor:'white', textDecoration: 'none' }}
           >
-            <Button endIcon={<LogoutIcon />} style={{ color: 'white', borderColor:'white' }}>Logout</Button>
-          </ButtonAsLink>
+          Logout
+          </Button>
         ) : (
           <ButtonGroup aria-label="outlined button group" disableElevation  variant="outlined">
             <Link style={{ textDecoration: 'none' }} to={'/signin'}><Button endIcon={<LoginIcon />} style={{ color: 'white', borderColor:'white', marginRight:'10px' }}>Login</Button></Link>
@@ -187,9 +227,10 @@ export default function Layout() {
         </DrawerHeader>
         <Divider />
         <List >
-          {DrawerLinks.map(({name}) => (
+          {DrawerLinks.map(({id, name, link, icon}) => (
+            <a href={link} style={{textDecoration:'none'}}>
             <ListItemButton
-              key={name}
+              key={id}
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
@@ -203,17 +244,19 @@ export default function Layout() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                {icon}
               </ListItemIcon>
               <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
+            </a>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {DrawerLinksBottom.map(({id, name, link, icon}) => (
+            <a href={link} style={{textDecoration:'none'}}>
             <ListItemButton
-              key={text}
+              key={id}
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
@@ -227,41 +270,18 @@ export default function Layout() {
                   justifyContent: 'center',
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {icon}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
+            </a>
           ))}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
+          {children}
         </Typography>
       </Box>
     </Box>
