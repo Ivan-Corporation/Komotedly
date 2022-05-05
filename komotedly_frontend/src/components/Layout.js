@@ -33,13 +33,21 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AddIcon from '@mui/icons-material/Add';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const DrawerLinks = [
   {
     id: 1,
-    name: 'Home',
+    name: 'Notes database',
     link: '/',
     icon: <HomeIcon />
+  },
+  {
+    id: 7,
+    name: 'Profile',
+    link: '/profile',
+    icon: <AccountCircleIcon />
   },
   {
     id: 2,
@@ -65,16 +73,16 @@ const DrawerLinks = [
 
 const DrawerLinksBottom = [
   {
-    id: 1,
-    name: 'Home',
+    id: 5,
+    name: 'Github',
     link: 'https://github.com/Ivan-Corporation',
     icon: <GitHubIcon />
   },
   {
-    id: 2,
-    name: 'My Notes',
-    link: '/mynotes',
-    icon: <EventNoteIcon />
+    id: 6,
+    name: 'Komolio',
+    link: 'https://komolio.netlify.app/',
+    icon: <LightbulbCircleIcon />
   },
  
 ]
