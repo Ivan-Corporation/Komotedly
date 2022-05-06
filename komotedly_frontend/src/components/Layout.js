@@ -36,6 +36,27 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { RepositoryMetrics } from 'repository-metrics';
+import { makeStyles } from "@mui/styles/makeStyles";
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      minWidth: 32,
+      paddingLeft: 8,
+      paddingRight: 8,
+      "& .MuiButton-endIcon": {
+        margin: 0
+      }
+    }
+  },
+  buttonText: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  }
+}));
+
 
 const DrawerLinks = [
   {
@@ -172,6 +193,10 @@ export default function Layout({ children }) {
     setOpen(false);
   };
 
+
+  const classes = useStyles();
+
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -221,8 +246,8 @@ export default function Layout({ children }) {
           </Button>
         ) : (
           <ButtonGroup aria-label="outlined button group" disableElevation  variant="outlined">
-            <Link style={{ textDecoration: 'none' }} to={'/signin'}><Button endIcon={<LoginIcon />} style={{ color: 'white', borderColor:'white', marginRight:'10px' }}>Login</Button></Link>
-            <Link style={{ textDecoration: 'none' }} to={'/signup'}><Button endIcon={<AddCircleOutlineIcon />} style={{ color: 'white', borderColor:'white' }} >Sign Up</Button></Link>
+            <Link style={{ textDecoration: 'none' }} to={'/signin'}><Button endIcon={<LoginIcon />} style={{ color: 'white', borderColor:'white', marginRight:'10px' }}><span className={classes.buttonText}>Login</span></Button></Link>
+            <Link style={{ textDecoration: 'none' }} to={'/signup'}><Button endIcon={<AddCircleOutlineIcon />} style={{ color: 'white', borderColor:'white' }} ><span className={classes.buttonText}>Sign Up</span></Button></Link>
             </ButtonGroup>
         )}
           

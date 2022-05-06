@@ -4,6 +4,11 @@ import { useMutation } from '@apollo/client';
 import ButtonAsLink from './ButtonAsLink';
 import { TOGGLE_FAVORITE } from '../gql/mutation';
 import { GET_MY_FAVORITES } from '../gql/query';
+import { Button } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+
+
 
 const FavoriteNote = props => {
   // store the note's favorite count as state
@@ -28,7 +33,7 @@ const FavoriteNote = props => {
   return (
     <React.Fragment>
       {favorited ? (
-        <ButtonAsLink
+        <div
           onClick={() => {
             toggleFavorite();
             setFavorited(false);
@@ -36,10 +41,10 @@ const FavoriteNote = props => {
           }}
           data-cy="favorite"
         >
-          Remove Favorite
-        </ButtonAsLink>
+         <HeartBrokenIcon fontSize='15px'/> REMOVE LIKE 
+        </div>
       ) : (
-        <ButtonAsLink
+        <div
           onClick={() => {
             toggleFavorite();
             setFavorited(true);
@@ -47,8 +52,8 @@ const FavoriteNote = props => {
           }}
           data-cy="favorite"
         >
-          Add Favorite
-        </ButtonAsLink>
+         <FavoriteIcon fontSize='15px'/> LIKE 
+        </div> 
       )}
       : {count}
     </React.Fragment>

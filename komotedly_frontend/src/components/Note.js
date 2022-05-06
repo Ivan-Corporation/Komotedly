@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
 import NoteUser from './NoteUser';
 import { IS_LOGGED_IN } from '../gql/query';
@@ -14,26 +15,13 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-
-// Keep notes from extending wider than 800px
-const StyledNote = styled.article`
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-// Style the note meta data
-const MetaData = styled.div`
-  @media (min-width: 500px) {
-    display: flex;
-    align-items: top;
-  }
-`;
-
-// add some space between the avatar and meta info
-const MetaInfo = styled.div`
-  padding-right: 1em;
-`;
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import { Divider } from '@mui/material';
+import AnotherSiteLink from '@mui/material/Link'
+import CardActionArea from '@mui/material/CardActionArea';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 // align 'Favorites' to the right on large screens
 const UserActions = styled.div`
@@ -76,8 +64,14 @@ const Note = ({ note }) => {
     //   </MetaData>
     //   <ReactMarkdown source={note.content} />
     // </StyledNote>
+    
+          
+    <Grid container spacing={2}>
+    <Grid item xs={12} sm={6} md={6}>
+    <CardActionArea>
+    <Card sx={{minWidth: 275}} style={{marginBottom:'15px', marginTop:'15px'}}>
+    <AnotherSiteLink href={`note/${note.id}`} style={{ textDecoration: 'none', color:'black' }}>
 
-    <Card sx={{ minWidth: 275 }}>
       <CardContent>
       <Typography variant="subtitle2" style={{float: 'right'}}>
         {format(note.createdAt, 'MMM Do YYYY')} <EventNoteIcon/>
@@ -87,19 +81,39 @@ const Note = ({ note }) => {
             alt={`${note.author.username} avatar`}
             
           />
-        <Typography >
+        <Typography variant="body2">
           Author - {note.author.username}
         </Typography>
         
-        <Typography variant="body1" >
+        <Typography variant="body1" style={{marginTop:'35px', marginBottom: '7px',whiteSpace:'pre-wrap'}} noWrap>
 
         {note.content}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
+      </AnotherSiteLink>
+
+      <Divider/>
+      <Button size="small" ><Link style={{ textDecoration: 'none', marginBottom: '-28px' }} to={`note/${note.id}`}>OPEN</Link></Button>
+      <CardActions style={{float: 'right'}}>
+      
+
+      <ButtonGroup color="primary"  aria-label="medium secondary button group">
+        {data.isLoggedIn ? (
+          <Typography> <NoteUser note={note} /></Typography>
+            
+          
+        ) : (
+          <Button size="small" endIcon={<FavoriteIcon />}><Typography> Likes: {note.favoriteCount}</Typography></Button>
+           
+        
+        )}
+        </ButtonGroup>
       </CardActions>
     </Card>
+    </CardActionArea>
+    
+    </Grid>
+    </Grid>
   );
 };
 

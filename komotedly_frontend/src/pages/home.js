@@ -20,8 +20,9 @@ const Home = () => {
   // if the data is successful, display the data in our UI
   return (
     <React.Fragment>
-      <Typography variant='h4' style={{marginTop:'18px'}} align='center'><b><Typed
-        strings={['Notes database']}
+      <Typography variant='h4' style={{marginTop:'18px'}} align='left'><b>
+        <Typed
+        strings={['Notes database:']}
         typeSpeed={100}
 
       /></b></Typography>

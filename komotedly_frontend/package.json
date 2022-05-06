@@ -23,6 +23,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.4",
+    "@mui/styles": "^5.6.2",
     "@types/react": "^16.9.17",
     "apollo-link-context": "1.0.19",
     "date-fns": "1.30.1",
