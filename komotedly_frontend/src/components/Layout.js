@@ -35,6 +35,7 @@ import AddIcon from '@mui/icons-material/Add';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { RepositoryMetrics } from 'repository-metrics';
 
 const DrawerLinks = [
   {
@@ -260,7 +261,7 @@ export default function Layout({ children }) {
           ))}
         </List>
         <Divider />
-        <List>
+        <List sx={{ flexGrow: 1 }}>
         {DrawerLinksBottom.map(({id, name, link, icon}) => (
             <a href={link} style={{textDecoration:'none'}}>
             <ListItemButton
@@ -285,6 +286,14 @@ export default function Layout({ children }) {
             </a>
           ))}
         </List>
+
+        <List>
+          <div style={{marginLeft:'15px', marginBottom:'7px'}}>{open ? <RepositoryMetrics 
+              owner='Ivan-Corporation' 
+              repo='Komotedly' 
+              theme='light' 
+              /> : ''}  
+       </div> </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />

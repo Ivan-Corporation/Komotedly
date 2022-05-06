@@ -32,6 +32,8 @@
     "react-dom": "^18.1.0",
     "react-markdown": "4.2.2",
     "react-router-dom": "5.1.2",
+    "react-typed": "^1.2.0",
+    "repository-metrics": "^3.7.6",
     "styled-components": "4.4.1"
   },
   "devDependencies": {
