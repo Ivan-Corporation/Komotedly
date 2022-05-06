@@ -36,7 +36,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { RepositoryMetrics } from 'repository-metrics';
-import { makeStyles } from "@mui/styles/makeStyles";
+import { makeStyles } from '@mui/styles';
+
 
 const useStyles = makeStyles(theme => ({
   button: {
