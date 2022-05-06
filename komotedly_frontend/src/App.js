@@ -13,6 +13,10 @@ import GlobalStyle from '/components/GlobalStyle';
 // import our routes
 import Pages from '/pages';
 
+
+
+
+
 // configure our API URI & cache
 const uri = process.env.API_URI;
 const httpLink = createHttpLink({ uri });
@@ -46,12 +50,19 @@ cache.writeData({ data });
 // write the cache data after cache is reset
 client.onResetStore(() => cache.writeData({ data }));
 
+
+
+
+
+
+
+
 const App = () => {
   return (
     <ApolloProvider client={client}>
       <GlobalStyle />
       
-      <Pages />
+       <Pages />
     </ApolloProvider>
   );
 };
