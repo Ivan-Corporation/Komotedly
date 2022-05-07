@@ -35,6 +35,10 @@ import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { RepositoryMetrics } from 'repository-metrics';
 import '../styles/headerButtons.css'
+import Tooltip from '@mui/material/Tooltip';
+import '../styles/background.css'
+import EggIcon from '@mui/icons-material/Egg';
+
 
 const DrawerLinks = [
   {
@@ -45,9 +49,9 @@ const DrawerLinks = [
   },
   {
     id: 7,
-    name: 'Profile',
-    link: '/profile',
-    icon: <AccountCircleIcon />
+    name: 'Secret',
+    link: '/secret',
+    icon: <EggIcon />
   },
   {
     id: 2,
@@ -241,6 +245,7 @@ export default function Layout({ children }) {
         <List >
           {DrawerLinks.map(({id, name, link, icon}) => (
             <a href={link} style={{textDecoration:'none'}}>
+             <Tooltip title={name} placement="right" arrow>
             <ListItemButton
               key={id}
               sx={{
@@ -258,8 +263,10 @@ export default function Layout({ children }) {
               >
                 {icon}
               </ListItemIcon>
+             
               <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
+            </Tooltip>
             </a>
           ))}
         </List>
@@ -267,6 +274,7 @@ export default function Layout({ children }) {
         <List sx={{ flexGrow: 1 }}>
         {DrawerLinksBottom.map(({id, name, link, icon}) => (
             <a href={link} style={{textDecoration:'none'}}>
+              <Tooltip title={name} placement="right" arrow>
             <ListItemButton
               key={id}
               sx={{
@@ -286,6 +294,7 @@ export default function Layout({ children }) {
               </ListItemIcon>
               <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
+            </Tooltip>
             </a>
           ))}
         </List>
@@ -298,7 +307,7 @@ export default function Layout({ children }) {
               /> : ''}  
        </div> </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box className='background-feed' component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
           {children}

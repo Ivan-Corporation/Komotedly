@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import '../styles/headerButtons.css'
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -34,6 +35,7 @@ const FavoriteNote = props => {
   return (
     <React.Fragment>
       {favorited ? (
+        <Tooltip title='Unlike' placement="top" arrow>
       <Button size='small' onClick={() => {
         toggleFavorite();
         setFavorited(false);
@@ -44,7 +46,9 @@ const FavoriteNote = props => {
       
          <span className='button-like'> {count}</span>
          </Button>
+         </Tooltip>
       ) : (
+        <Tooltip title='Like' placement="top" arrow>
         <Button size='small'
           onClick={() => {
             toggleFavorite();
@@ -56,6 +60,7 @@ const FavoriteNote = props => {
         >
           <span className='button-like'> {count}</span>
          </Button> 
+         </Tooltip>
       )}
       
       

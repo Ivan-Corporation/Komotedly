@@ -1,27 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import '../styles/form.css'
 import Button from './Button';
+import Typed from 'react-typed';
+import { Typography } from '@mui/material';
 
-const Wrapper = styled.div`
-  border: 1px solid #f5f4f0;
-  max-width: 500px;
-  padding: 1em;
-  margin: 0 auto;
-`;
 
-const Form = styled.form`
-  label,
-  input {
-    display: block;
-    line-height: 2em;
-  }
 
-  input {
-    width: 100%;
-    margin-bottom: 1em;
-  }
-`;
+
 
 const UserForm = props => {
   // set the default state of the form
@@ -36,11 +22,21 @@ const UserForm = props => {
   };
 
   return (
-    <Wrapper>
+    <div>
       {/* Display the appropriate form header */}
-      {props.formType === 'signup' ? <h2>Sign Up</h2> : <h2>Login</h2>}
+      {props.formType === 'signup' ? <Typography variant='h4' style={{marginTop:'18px'}} align='center'><b>
+        <Typed
+        strings={['Sign Up']}
+        typeSpeed={100}
+
+      /></b></Typography> : <Typography variant='h4' style={{marginTop:'18px'}} align='center'><b>
+      <Typed
+      strings={['Login']}
+      typeSpeed={100}
+
+    /></b></Typography>}
       {/* perform the mutation when a user submits the form */}
-      <Form
+      <form class="login-box"
         onSubmit={event => {
           event.preventDefault();
           props.action({
@@ -51,9 +47,9 @@ const UserForm = props => {
         }}
       >
         {props.formType === 'signup' && (
-          <React.Fragment>
-            <label htmlFor="username">Username:</label>
-            <input
+          <div class="user-box">
+            <label htmlFor="username"></label>
+            <input 
               required
               type="text"
               id="username"
@@ -61,9 +57,10 @@ const UserForm = props => {
               placeholder="username"
               onChange={onChange}
             />
-          </React.Fragment>
+          </div>
         )}
-        <label htmlFor="email">Email:</label>
+        <div class="user-box">
+        <label htmlFor="email"></label>
         <input
           required
           type="email"
@@ -72,7 +69,10 @@ const UserForm = props => {
           placeholder="Email"
           onChange={onChange}
         />
-        <label htmlFor="password">Password:</label>
+        </div>
+        <div class="user-box">
+
+        <label htmlFor="password"></label>
         <input
           required
           type="password"
@@ -81,9 +81,16 @@ const UserForm = props => {
           placeholder="Password"
           onChange={onChange}
         />
-        <Button type="submit">Submit</Button>
-      </Form>
-    </Wrapper>
+        </div>
+        <Button type="submit"><a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+      </a></Button>
+      </form>
+    </div>
   );
 };
 

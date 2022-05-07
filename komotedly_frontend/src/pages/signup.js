@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
+import { Typography } from '@mui/material';
 
 import UserForm from '../components/UserForm';
 import { SIGNUP_USER } from '../gql/mutation';
@@ -26,9 +27,9 @@ const SignUp = props => {
     <React.Fragment>
       <UserForm action={signUp} formType="signup" />
       {/* if the data is loading, display a loading message*/}
-      {loading && <p>Loading...</p>}
+      {loading && <Typography align='center' variant='h5' style={{marginTop:'40px'}}>Loading...</Typography>}
       {/* if there is an error, display a error message*/}
-      {error && <p>Error creating an account!</p>}
+      {error && <Typography align='center' variant='h5' style={{marginTop:'40px'}}>Error {error.message}</Typography>}
     </React.Fragment>
   );
 };

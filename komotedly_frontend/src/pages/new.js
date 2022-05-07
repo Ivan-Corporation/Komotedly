@@ -4,6 +4,11 @@ import { useMutation } from '@apollo/client';
 import NoteForm from '../components/NoteForm';
 import { NEW_NOTE } from '../gql/mutation';
 import { GET_MY_NOTES, GET_NOTES } from '../gql/query';
+import Button  from '@mui/material/Button';
+import Typography  from '@mui/material/Typography';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Typed from 'react-typed';
+
 
 const NewNote = props => {
   useEffect(() => {
@@ -22,10 +27,15 @@ const NewNote = props => {
 
   return (
     <React.Fragment>
+      <Typography variant='h5' style={{marginTop:'18px'}} align='center'><b><Typed
+        strings={['Write new note here:']}
+        typeSpeed={100}
+      /></b>
+      </Typography>
       {/* as the mutation is loading, display a loading message*/}
-      {loading && <p>Loading...</p>}
+      {loading && <Typography align='center' variant='h5' style={{marginTop:'40px'}}>Loading</Typography>}
       {/* if there is an error, display a error message*/}
-      {error && <p>Error saving the note</p>}
+      {error && <Typography align='center' variant='h5' style={{marginTop:'40px'}}>Error</Typography>}
       {/* the form component, passing the mutation data as a prop */}
       <NoteForm action={data} />
     </React.Fragment>

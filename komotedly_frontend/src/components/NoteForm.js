@@ -5,6 +5,7 @@ import Button from './Button';
 
 const Wrapper = styled.div`
   height: 100%;
+  
 `;
 
 const Form = styled.form`
@@ -13,7 +14,10 @@ const Form = styled.form`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 90%;
+  min-height: 125px;
+  border-radius: 6px;
+  
+
 `;
 
 const NoteForm = props => {
@@ -30,6 +34,7 @@ const NoteForm = props => {
 
   return (
     <Wrapper>
+      <br/>
       <Form
         onSubmit={e => {
           e.preventDefault();
@@ -48,10 +53,34 @@ const NoteForm = props => {
           value={value.content}
           onChange={onChange}
         />
-        <Button type="submit">Save</Button>
+        <Button type="submit">Save 💾</Button>
       </Form>
     </Wrapper>
   );
 };
+
+
+{/* <TextField id="outlined-basic" label="New note" variant="filled" multiline style={{marginTop:'50px'}} fullWidth color="warning"
+        onSubmit={e => {
+          e.preventDefault();
+          props.action({
+            variables: {
+              ...value
+            }
+          });
+        }}
+      >
+        <TextArea
+          required
+          type="text"
+          name="content"
+          placeholder="Note content"
+          value={value.content}
+          onChange={onChange}
+        />
+        
+      </TextField>
+      <Button endIcon={<SendIcon/>} type="submit" variant='contained' style={{color: 'white', marginTop:'20px'}} color='warning'>Save</Button> */}
+
 
 export default NoteForm;

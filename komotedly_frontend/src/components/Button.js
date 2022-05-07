@@ -7,7 +7,7 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 18px;
   color: #fff;
-  background-color: #0077cc;
+  background-color: darkorange;
   cursor: pointer;
 
   :hover {
@@ -15,7 +15,7 @@ const Button = styled.button`
   }
 
   :active {
-    background-color: #005fa3;
+    background-color: orange;
   }
 `;
 

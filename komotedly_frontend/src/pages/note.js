@@ -1,6 +1,7 @@
 import React from 'react';
 // import our GraphQL dependencies
 import { useQuery } from '@apollo/client';
+import Typed from 'react-typed';
 
 // import the Note component
 import Note from '../components/Note';
