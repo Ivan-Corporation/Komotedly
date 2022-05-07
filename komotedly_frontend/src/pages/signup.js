@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
 import { Typography } from '@mui/material';
-
 import UserForm from '../components/UserForm';
 import { SIGNUP_USER } from '../gql/mutation';
 

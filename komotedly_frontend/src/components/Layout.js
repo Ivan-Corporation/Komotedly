@@ -308,6 +308,18 @@ export default function Layout({ children }) {
        </div> </List>
       </Drawer>
       <Box className='background-feed' component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
         <DrawerHeader />
         <Typography paragraph>
           {children}
