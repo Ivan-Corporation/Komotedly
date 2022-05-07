@@ -7,6 +7,7 @@ import { GET_MY_FAVORITES } from '../gql/query';
 import { Button } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import '../styles/headerButtons.css'
 
 
 
@@ -33,29 +34,31 @@ const FavoriteNote = props => {
   return (
     <React.Fragment>
       {favorited ? (
-        <div
-          onClick={() => {
-            toggleFavorite();
-            setFavorited(false);
-            setCount(count - 1);
-          }}
-          data-cy="favorite"
-        >
-         <HeartBrokenIcon fontSize='15px'/> REMOVE LIKE 
-        </div>
+      <Button size='small' onClick={() => {
+        toggleFavorite();
+        setFavorited(false);
+        setCount(count - 1);
+      }}
+      startIcon={<HeartBrokenIcon fontSize='15px'/>}
+      data-cy="favorite">
+      
+         <span className='button-like'> {count}</span>
+         </Button>
       ) : (
-        <div
+        <Button size='small'
           onClick={() => {
             toggleFavorite();
             setFavorited(true);
             setCount(count + 1);
           }}
           data-cy="favorite"
+          startIcon={<FavoriteIcon fontSize='15px'/>}
         >
-         <FavoriteIcon fontSize='15px'/> LIKE 
-        </div> 
+          <span className='button-like'> {count}</span>
+         </Button> 
       )}
-      : {count}
+      
+      
     </React.Fragment>
   );
 };

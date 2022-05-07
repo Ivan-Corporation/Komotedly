@@ -1,0 +1,11 @@
+@media (max-width:900px) {
+    .card-responsive {
+        max-width: 600px;
+    }
+}
+
+@media (max-width:600px) {
+    .card-responsive {
+        max-width: 100px;
+    }
+}

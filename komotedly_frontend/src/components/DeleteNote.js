@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
 import { DELETE_NOTE } from '../gql/mutation';
 import { GET_MY_NOTES, GET_NOTES } from '../gql/query';
+import '../styles/headerButtons.css'
 
 const DeleteNote = props => {
   const [deleteNote] = useMutation(DELETE_NOTE, {
@@ -19,7 +20,7 @@ const DeleteNote = props => {
     }
   });
 
-  return <ButtonAsLink onClick={deleteNote}>DELETE</ButtonAsLink>;
+  return <ButtonAsLink onClick={deleteNote}><span className='button-hide'>DELETE</span></ButtonAsLink>;
 };
 
 export default withRouter(DeleteNote);

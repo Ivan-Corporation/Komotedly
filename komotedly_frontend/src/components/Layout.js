@@ -1,5 +1,3 @@
-import Header from './Header';
-import Navigation from './Navigation';
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -36,28 +34,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { RepositoryMetrics } from 'repository-metrics';
-import { makeStyles } from '@mui/styles';
-
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-    [theme.breakpoints.down("sm")]: {
-      minWidth: 32,
-      paddingLeft: 8,
-      paddingRight: 8,
-      "& .MuiButton-endIcon": {
-        margin: 0
-      }
-    }
-  },
-  buttonText: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
-  }
-}));
-
+import '../styles/headerButtons.css'
 
 const DrawerLinks = [
   {
@@ -195,8 +172,6 @@ export default function Layout({ children }) {
   };
 
 
-  const classes = useStyles();
-
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -222,10 +197,10 @@ export default function Layout({ children }) {
             aria-label="menu"
             
           >
-          <Link style={{ textDecoration: 'none' }} to={'/'}><img src={logo} alt="Komotedly Logo"/></Link>
+          <Link style={{ textDecoration: 'none' }} to={'/'}><img className='komotedly-image' src={logo} alt="Komotedly Logo"/></Link>
           </IconButton>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-          <b>Komotedly</b>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} >
+          <b className='komotedly-header'>Komotedly</b>
           </Typography>
 
 
@@ -239,16 +214,18 @@ export default function Layout({ children }) {
               // update local state
               client.writeData({ data: { isLoggedIn: false } });
               // redirect the user to the homepage
+              window.location.reload(false)
               props.history.push('/');
+                      
             }}
             endIcon={<LogoutIcon />} style={{ color: 'white', borderColor:'white', textDecoration: 'none' }}
           >
-          Logout
+         <span className='button-hide'>Logout</span>
           </Button>
         ) : (
           <ButtonGroup aria-label="outlined button group" disableElevation  variant="outlined">
-            <Link style={{ textDecoration: 'none' }} to={'/signin'}><Button endIcon={<LoginIcon />} style={{ color: 'white', borderColor:'white', marginRight:'10px' }}><span className={classes.buttonText}>Login</span></Button></Link>
-            <Link style={{ textDecoration: 'none' }} to={'/signup'}><Button endIcon={<AddCircleOutlineIcon />} style={{ color: 'white', borderColor:'white' }} ><span className={classes.buttonText}>Sign Up</span></Button></Link>
+            <Link style={{ textDecoration: 'none' }} to={'/signin'}><Button endIcon={<LoginIcon />} style={{ color: 'white', borderColor:'white', marginRight:'10px' }}><span className='buttonHide'>Login</span></Button></Link>
+            <Link style={{ textDecoration: 'none' }} to={'/signup'}><Button endIcon={<AddCircleOutlineIcon />} style={{ color: 'white', borderColor:'white' }} ><span className='buttonHide'>Sign Up</span></Button></Link>
             </ButtonGroup>
         )}
           

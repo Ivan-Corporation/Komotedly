@@ -22,6 +22,8 @@ import AnotherSiteLink from '@mui/material/Link'
 import CardActionArea from '@mui/material/CardActionArea';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import '../styles/cardSizes.css'
+import '../styles/headerButtons.css'
 
 // align 'Favorites' to the right on large screens
 const UserActions = styled.div`
@@ -68,8 +70,9 @@ const Note = ({ note }) => {
           
     <Grid container spacing={2}>
     <Grid item xs={12} sm={6} md={6}>
+    
+    <Card sx={{minWidth: 275}} className='card-responsive' style={{marginBottom:'15px', marginTop:'15px'}}>
     <CardActionArea>
-    <Card sx={{minWidth: 275}} style={{marginBottom:'15px', marginTop:'15px'}}>
     <AnotherSiteLink href={`note/${note.id}`} style={{ textDecoration: 'none', color:'black' }}>
 
       <CardContent>
@@ -85,7 +88,7 @@ const Note = ({ note }) => {
           Author - {note.author.username}
         </Typography>
         
-        <Typography variant="body1" style={{marginTop:'35px', marginBottom: '7px',whiteSpace:'pre-wrap'}} noWrap>
+        <Typography variant="body1" style={{marginTop:'35px', marginBottom: '7px',  wordWrap: "break-word"}}>
 
         {note.content}
         </Typography>
@@ -93,7 +96,7 @@ const Note = ({ note }) => {
       </AnotherSiteLink>
 
       <Divider/>
-      <Button size="small" ><Link style={{ textDecoration: 'none', marginBottom: '-28px' }} to={`note/${note.id}`}>OPEN</Link></Button>
+      {/* <Button size="small" ><Link style={{ textDecoration: 'none', marginBottom: '-28px' }} to={`note/${note.id}`}><span className='button-hide'>OPEN</span></Link></Button> */}
       <CardActions style={{float: 'right'}}>
       
 
@@ -109,8 +112,9 @@ const Note = ({ note }) => {
         )}
         </ButtonGroup>
       </CardActions>
+      </CardActionArea>
     </Card>
-    </CardActionArea>
+    
     
     </Grid>
     </Grid>
