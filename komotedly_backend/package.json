@@ -6,7 +6,6 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "dev": "nodemon src/index.js",
-    "final": "nodemon final/index.js",
     "seed": "node final/util/seed/index.js",
     "lint": "eslint \"src/**/*.js\""
   },
