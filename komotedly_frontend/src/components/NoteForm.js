@@ -10,13 +10,14 @@ const Wrapper = styled.div`
 
 const Form = styled.form`
   height: 100%;
+  z-index: 20;
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   min-height: 125px;
   border-radius: 6px;
-  
+  z-index: 20;
 
 `;
 

@@ -59,8 +59,9 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <GlobalStyle />
-      
+  
        <Pages />
+     
     </ApolloProvider>
   );
 };

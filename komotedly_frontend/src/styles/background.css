@@ -12,6 +12,7 @@
     width: 100%;
     min-height: 1950px;
     overflow: hidden;
+    z-index: -10;
 }
 
 .circles li {
