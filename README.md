@@ -10,14 +10,17 @@
 <ul>
 <li><h3><b>Frontend:</b></h3>
 <li><strike>Repository metrics</strike>
-<li>Responsive size for MUI icons
-<li>See current page location
+<li><strike>Responsive size for MUI icons</strike>
+<li><strike>See current page location</strike>
 <li><strike>Pagination</strike>
 <li><strike> && echo ‘/* /index.html 200’ | cat >dist/_redirects</strike>
 </ul>
 <hr>
 <ul>
 <li><h3><b>Desktop app:</b></h3>
+<li><strike>Electron builder</strike>
+<li><strike>hide menu bar</strike>
+<li><strike>Crossplatform</strike>
 </ul>
 <hr>
 <ul>
