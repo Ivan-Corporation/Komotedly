@@ -4,7 +4,7 @@
   "description": "Komotedly for Desktop applications",
   "main": "src/index.js",
   "build": {
-    "appId": "komotedly",
+    "appId": "io.komotedly",
     "productName": "Komotedly",
     "directories": {
       "buildResources": "resources"
@@ -12,7 +12,6 @@
   },
   "scripts": {
     "start": "electron src/index.js",
-    "final": "electron final/index.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder -mwl"
   },

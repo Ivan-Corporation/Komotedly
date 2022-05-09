@@ -1,6 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 const { is, setContentSecurityPolicy } = require('electron-util');
-const config = require('./config');
+const config = require('./config.js');
+
+
+
 
 // to avoid garbage collection, declare the window as a variable
 let window;
@@ -8,6 +11,7 @@ let window;
 // specify the details of the browser window
 function createWindow() {
   window = new BrowserWindow({
+    autoHideMenuBar: true,
     width: 800,
     height: 600,
     webPreferences: {
