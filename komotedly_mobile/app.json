@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Komotedly",
+    "slug": "komotedly-mobile",
+    "description": "Komotedly mobile app",
+    "privacy": "public",
+    "version": "1.1.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "icon": "./assets/custom/icon.png",
+    "splash": {
+      "image": "./assets/custom/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#4A90E2"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 1500
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/custom/icon.png",
+        "backgroundColor": "#4A90E2"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
