@@ -26,6 +26,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.komotedly.komotedly",
       "adaptiveIcon": {
         "foregroundImage": "./assets/custom/icon.png",
         "backgroundColor": "#4A90E2"

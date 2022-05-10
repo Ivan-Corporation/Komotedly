@@ -10,6 +10,10 @@
 ## Desktop:
 ![image](https://user-images.githubusercontent.com/58357980/167415863-ce87e9df-f10e-4cc5-96fb-a0635db7cb59.png)
 
+## Mobile:
+<img src='./mobile.jpg'>
+
+
 
 <h2>Todo:</h2>
 <ul>
@@ -37,4 +41,6 @@
 <hr>
 <ul>
 <li><h3><b>Mobile app:</b></h3>
+<li><strike>Android SDK</strike>
+<li><strike>Simple interface</strike>
 </ul>
