@@ -66,57 +66,58 @@ const Note = ({ note }) => {
     //   </MetaData>
     //   <ReactMarkdown source={note.content} />
     // </StyledNote>
-    
-          
+
+
     <Grid container spacing={2}>
-    <Grid item xs={12} sm={6} md={6}>
-    
-    <Card sx={{minWidth: 275}} className='card-responsive' style={{marginBottom:'15px', marginTop:'15px'}}>
-    <CardActionArea>
-    <AnotherSiteLink href={`note/${note.id}`} style={{ textDecoration: 'none', color:'black' }}>
+      <Grid item xs={12} sm={6} md={6}>
 
-      <CardContent>
-      <Typography variant="subtitle2" style={{float: 'right'}}>
-        {format(note.createdAt, 'MMM Do YYYY')} <EventNoteIcon/>
-        </Typography>
-        <img
-            src={note.author.avatar}
-            alt={`${note.author.username} avatar`}
-            
-          />
-        <Typography variant="body2">
-          Author - {note.author.username}
-        </Typography>
-        
-        <Typography variant="body1" style={{marginTop:'35px', marginBottom: '7px',  wordWrap: "break-word"}}>
+        <Card sx={{ minWidth: 275 }} className='card-responsive' style={{ marginBottom: '15px', marginTop: '15px' }}>
+          <CardActionArea>
+            {/* href={`note/${note.id}`} */}
+            <AnotherSiteLink style={{ textDecoration: 'none', color: 'black' }}>
 
-        {note.content}
-        </Typography>
-      </CardContent>
-      </AnotherSiteLink>
+              <CardContent>
+                <Typography variant="subtitle2" style={{ float: 'right' }}>
+                  {format(note.createdAt, 'MMM Do YYYY')} <EventNoteIcon />
+                </Typography>
+                <img
+                  src={note.author.avatar}
+                  alt={`${note.author.username} avatar`}
 
-      <Divider/>
-      {/* <Button size="small" ><Link style={{ textDecoration: 'none', marginBottom: '-28px' }} to={`note/${note.id}`}><span className='button-hide'>OPEN</span></Link></Button> */}
-      <CardActions style={{float: 'right'}}>
-      
+                />
+                <Typography variant="body2">
+                  Author - {note.author.username}
+                </Typography>
 
-      <ButtonGroup color="primary"  aria-label="medium secondary button group">
-        {data.isLoggedIn ? (
-          <Typography> <NoteUser note={note} /></Typography>
-            
-          
-        ) : (
-          <Button size="small" endIcon={<FavoriteIcon />}><Typography> Likes: {note.favoriteCount}</Typography></Button>
-           
-        
-        )}
-        </ButtonGroup>
-      </CardActions>
-      </CardActionArea>
-    </Card>
-    
-    
-    </Grid>
+                <Typography variant="body1" style={{ marginTop: '35px', marginBottom: '7px', wordWrap: "break-word" }}>
+
+                  {note.content}
+                </Typography>
+              </CardContent>
+            </AnotherSiteLink>
+
+            <Divider />
+            {/* <Button size="small" ><Link style={{ textDecoration: 'none', marginBottom: '-28px' }} to={`note/${note.id}`}><span className='button-hide'>OPEN</span></Link></Button> */}
+            <CardActions style={{ float: 'right' }}>
+
+
+              <ButtonGroup color="primary" aria-label="medium secondary button group">
+                {data.isLoggedIn ? (
+                  <Typography> <NoteUser note={note} /></Typography>
+
+
+                ) : (
+                  <Button size="small" endIcon={<FavoriteIcon />}><Typography> Likes: {note.favoriteCount}</Typography></Button>
+
+
+                )}
+              </ButtonGroup>
+            </CardActions>
+          </CardActionArea>
+        </Card>
+
+
+      </Grid>
     </Grid>
   );
 };
