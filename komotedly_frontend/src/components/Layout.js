@@ -38,6 +38,7 @@ import '../styles/headerButtons.css'
 import Tooltip from '@mui/material/Tooltip';
 import '../styles/background.css'
 import EggIcon from '@mui/icons-material/Egg';
+import easterBreaker from "easter-break";
 
 
 const DrawerLinks = [
@@ -305,7 +306,10 @@ export default function Layout({ children }) {
               repo='Komotedly' 
               theme='light' 
               /> : ''}  
-       </div> </List>
+              
+       </div> 
+       {open ?<button className="easterBreaker" onClick={easterBreaker}>Click me :)</button>: ''} 
+       </List>
       </Drawer>
       <Box className='background-feed' component="main" sx={{ flexGrow: 1, p: 3 }}>
       <ul class="circles">
